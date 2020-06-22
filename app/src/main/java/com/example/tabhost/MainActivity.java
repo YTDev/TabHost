@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     TabHost tabHost;
@@ -35,8 +36,29 @@ public class MainActivity extends AppCompatActivity {
         spec.setIndicator("Tab 4");
         tabHost.addTab(spec);
 
-        tabHost.setCurrentTab(3);
+        tabHost.setCurrentTab(1);
 
+        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                switch (tabId){
+                    case "t1":
+                        Toast.makeText(getApplicationContext(),"bonjour tab1",Toast.LENGTH_SHORT).show();
+                        break;
+                    case "t2":
+                        Toast.makeText(getApplicationContext(),"bonjour tab2",Toast.LENGTH_SHORT).show();
+                        break;
+                    case "t3":
+                        Toast.makeText(getApplicationContext(),"bonjour tab3",Toast.LENGTH_SHORT).show();
+                        break;
+                    case "t4":
+                        Toast.makeText(getApplicationContext(),"bonjour tab4",Toast.LENGTH_SHORT).show();
+                        break;
+
+
+                }
+            }
+        });
 
     }
 }
